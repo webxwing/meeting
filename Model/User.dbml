@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="meeting" Class="UserDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=10.35.10.203;Initial Catalog=meeting;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="SqlConnection" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.T_user" Member="T_users">
+    <Type Name="T_user">
+      <Column Name="u_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="u_username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="u_password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="u_actor" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_system" Member="T_systems">
+    <Type Name="T_system">
+      <Column Name="s_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="s_version" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="s_server_address" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="s_port" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

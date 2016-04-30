@@ -1,0 +1,25 @@
+﻿*{
+    font-size:14px;
+}
+body{
+    font-family:"微软雅黑","宋体",Arial, Helvetica, sans-serif;
+    padding:20px;
+    font-size:14px;
+    margin:0;
+}
+.div_wraper{
+    width:700px;
+    margin:0 auto;
+}
+.div_row{
+    margin:10px auto;
+    padding:2px;
+    vertical-align:middle;  
+}
+input[type="text"]{
+    vertical-align:middle;
+}
+label{
+     vertical-align: top;
+}
+
