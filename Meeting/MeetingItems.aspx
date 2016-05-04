@@ -12,21 +12,21 @@
     <script src="../Scripts/jquery.easyui.min.js"></script>
     <script src="../Scripts/app.js"></script>
     <style>
-        .title_center{
-            text-align:center;
+        .title_center {
+            text-align: center;
         }
     </style>
 </head>
-    
+
 <body>
     <form id="form1" runat="server">
-    <div class="div_wraper">
-        <div class="title_center">
+        <div class="div_wraper">
+            <div class="title_center">
                 <h2>
                     <asp:Label Text="text" runat="server" ID="m_title_label" />
                 </h2>
             </div>
-        <table id="dg" title="用户列表" style="width: 700px; height: 350px"
+            <table id="dg" title="用户列表" style="width: 700px; height: 350px"
                 data-options="rownumbers:true,singleSelect:true,pagination:true,method:'get',toolbar:'#tb_tool'">
                 <thead>
                     <tr>
@@ -38,18 +38,18 @@
                     </tr>
                 </thead>
             </table>
-    </div>
-    <div id="tb_tool" style="padding:5px;height:auto">
-        <div style="margin-bottom:5px;">
-            <a href="#" class="easyui-linkbutton" iconCls="icon-application_start" plain="true" id="start">开启</a>
-            <a href="#" class="easyui-linkbutton" iconCls="icon-application_stop" plain="true" id="over">结束</a>
-            <a href="#" class="easyui-linkbutton" iconCls=" icon-application_side_expand" plain="true" id="restart">重启</a>
         </div>
-    </div>
+        <div id="tb_tool" style="padding: 5px; height: auto">
+            <div style="margin-bottom: 5px;">
+                <a href="#" class="easyui-linkbutton" iconcls="icon-application_start" id="start">开启</a>
+                <a href="#" class="easyui-linkbutton" iconcls="icon-application_stop" id="over">结束</a>
+                <a href="#" class="easyui-linkbutton" iconcls=" icon-application_side_expand" id="restart">重启</a>
+            </div>
+        </div>
     </form>
 </body>
-    <script>
-        $(function () {
+<script>
+    $(function () {
         var m_id = getQueryString('m_id');
         if (m_id != null && m_id != "") {
             $('#dg').datagrid({
@@ -62,25 +62,25 @@
             pageList: [5, 10, 15],
             beforePageText: '第',
             afterPageText: '页  共{pages}页',
-            displayMsg:'当前{from}-{to}',
+            displayMsg: '当前{from}-{to}',
             buttons: [{
                 iconCls: 'icon-add',
-                text:'添加',
+                text: '添加',
                 handler: function () {
                     window.location.href = "MeetingAddItems.aspx?m_id=" + m_id;
                 }
             }, {
                 iconCls: 'icon-remove',
-                text:'删除',
+                text: '删除',
                 handler: function () {
-                    
+
                 }
             }, {
                 iconCls: 'icon-edit',
-                text:'编辑',
+                text: '编辑',
                 handler: function () {
                     var row = $('#dg').datagrid('getSelected');
-                    window.location.href = "MeetingEditItems.aspx?m_id=" + m_id +"&item_id=" + row.id;
+                    window.location.href = "MeetingEditItems.aspx?m_id=" + m_id + "&item_id=" + row.id;
                 }
             }, {
                 iconCls: 'icon-undo',
@@ -96,21 +96,68 @@
                 }
             }]
         });
+        //开始
         $('#start').click(function () {
             var row = $('#dg').datagrid('getSelected');
             if (row && m_id != null && m_id != "") {
-                
-            }else
-            {
-
+                //MeetingItemControl.ashx
+                var control_data = { 'm_id': m_id, 'i_id': row.id, 'i_state': '进行中' };
+                getData('MeetingItemControl.ashx', control_data, function (data) {
+                    if (data == "ok") {
+                        $('#dg').datagrid('reload');
+                        $.messager.alert("提示", "议程开始");
+                    }
+                    else {
+                        $.messager.alert("错误", "开启失败,请重试!");
+                    }
+                }, function (msg) {
+                    $.messager.alert("错误", "开启失败，服务器错误：" + msg);
+                });
+            } else {
+                $.messager.alert("错误", "开启失败,请选择议程!");
             }
         });
+        //结束
         $('#over').click(function () {
             var row = $('#dg').datagrid('getSelected');
             if (row && m_id != null && m_id != "") {
-
+                var control_data = { 'm_id': m_id, 'i_id': row.id, 'i_state': '已结束' };
+                getData('MeetingItemControl.ashx', control_data, function (data) {
+                    if (data == "ok") {
+                        $('#dg').datagrid('reload');
+                        $.messager.alert("提示", "议程结束");
+                    }
+                    else {
+                        $.messager.alert("错误", "开启失败,请重试!");
+                    }
+                }, function (msg) {
+                    $.messager.alert("错误", "开启失败，服务器错误：" + msg);
+                });
+            } else {
+                $.messager.alert("错误", "开启失败,请选择议程!");
             }
-        })
+        });
+        //重启
+        $('#restart').click(function () {
+            var row = $('#dg').datagrid('getSelected');
+            if (row && m_id != null && m_id != "") {
+                var control_data = { 'm_id': m_id, 'i_id': row.id, 'i_state': '未开始' };
+                getData('MeetingItemControl.ashx', control_data, function (data) {
+                    if (data == "ok") {
+                        $('#dg').datagrid('reload');
+                        $.messager.alert("提示", "议程重启成功！");
+                    }
+                    else {
+                        $.messager.alert("错误", "重启失败,请重试!");
+                    }
+                }, function (msg) {
+                    $.messager.alert("错误", "重启失败，服务器错误：" + msg);
+                });
+            } else {
+                $.messager.alert("错误", "重启失败,请选择议程!");
+            }
+        });
+
     })
 </script>
 </html>
