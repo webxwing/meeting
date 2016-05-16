@@ -14,7 +14,11 @@ namespace meeting.server
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/plain";
-            context.Response.Write("Hello World");
+            //status 0  不提示更新
+            //status 1  有更新
+            //status 2  重要更新，强制更新
+            string data = "{\"version\":\"0.9.1\",\"url\":\"http://118.114.252.172:2081/download/xfxc0.9.4.apk\",\"status\":\"1\"}";
+            context.Response.Write(data);
         }
 
         public bool IsReusable

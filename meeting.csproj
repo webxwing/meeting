@@ -2308,7 +2308,9 @@
     <Content Include="User\AddUser.aspx" />
     <Content Include="User\Userlist.aspx" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
@@ -2316,6 +2318,13 @@
     <Content Include="Site.Mobile.Master" />
     <Content Include="User\UserHandler.ashx" />
     <Content Include="server\update.ashx" />
+    <Content Include="server\Login.ashx" />
+    <Content Include="server\meetingbystate.ashx" />
+    <Content Include="server\meetingfrompage.ashx" />
+    <Content Include="server\meetingbyid.ashx" />
+    <Content Include="server\meetingItemBymid.ashx" />
+    <Content Include="server\meetingItemControl.ashx" />
+    <Content Include="server\meetingItemCheck.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2345,14 +2354,12 @@
     </Compile>
     <Compile Include="Account\Manage.aspx.cs">
       <DependentUpon>Manage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Account\Manage.aspx.designer.cs">
       <DependentUpon>Manage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\OpenAuthProviders.ascx.cs">
       <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Account\OpenAuthProviders.ascx.designer.cs">
       <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
@@ -2366,7 +2373,6 @@
     </Compile>
     <Compile Include="Account\RegisterExternalLogin.aspx.cs">
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Account\RegisterExternalLogin.aspx.designer.cs">
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
@@ -2412,7 +2418,6 @@
     </Compile>
     <Compile Include="main.aspx.cs">
       <DependentUpon>main.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="main.aspx.designer.cs">
       <DependentUpon>main.aspx</DependentUpon>
@@ -2450,7 +2455,6 @@
     </Compile>
     <Compile Include="Meeting\MeetingEditItems.aspx.cs">
       <DependentUpon>MeetingEditItems.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Meeting\MeetingEditItems.aspx.designer.cs">
       <DependentUpon>MeetingEditItems.aspx</DependentUpon>
@@ -2497,6 +2501,27 @@
       <DependentUpon>User.dbml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="server\Login.ashx.cs">
+      <DependentUpon>Login.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="server\meetingbyid.ashx.cs">
+      <DependentUpon>meetingbyid.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="server\meetingbystate.ashx.cs">
+      <DependentUpon>meetingbystate.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="server\meetingfrompage.ashx.cs">
+      <DependentUpon>meetingfrompage.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="server\meetingItemBymid.ashx.cs">
+      <DependentUpon>meetingItemBymid.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="server\meetingItemCheck.ashx.cs">
+      <DependentUpon>meetingItemCheck.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="server\meetingItemControl.ashx.cs">
+      <DependentUpon>meetingItemControl.ashx</DependentUpon>
+    </Compile>
     <Compile Include="server\update.ashx.cs">
       <DependentUpon>update.ashx</DependentUpon>
     </Compile>

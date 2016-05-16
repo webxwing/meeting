@@ -15,7 +15,7 @@ namespace meeting.Meeting
         private meeting_itemsDataContext dbContext = new meeting_itemsDataContext();
         public void ProcessRequest(HttpContext context)
         {
-            context.Response.ContentType = "text/plain";
+            context.Response.ContentType = "application/Json";
             int pageIndex = context.Request["page"] == null || context.Request["page"] == "" ? 1 : Int32.Parse(context.Request["page"]);
             int pageSize = context.Request["rows"] == null || context.Request["rows"] == "" ? 1 : Int32.Parse(context.Request["rows"]);
             if (context.Request["m_id"] != null && context.Request["m_id"] != "")

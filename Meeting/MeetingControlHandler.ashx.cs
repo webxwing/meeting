@@ -14,7 +14,7 @@ namespace meeting.Meeting
         private meetingDataContext db = new meetingDataContext();
         public void ProcessRequest(HttpContext context)
         {
-            context.Response.ContentType = "text/plain";
+            context.Response.ContentType = "application/Json";
             string contronState = context.Request["cState"] != null && context.Request["cState"] != "" ? context.Request["cState"].ToString() : "";
             if (context.Request["m_id"] != null && context.Request["m_id"] != "")
             {

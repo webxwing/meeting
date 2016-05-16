@@ -2,7 +2,7 @@
   <Connection Mode="WebSettings" ConnectionString="Data Source=10.35.10.203;Initial Catalog=meeting;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="SqlConnection" Provider="System.Data.SqlClient" />
   <Table Name="dbo.T_meeting" Member="T_meetings">
     <Type Name="T_meeting">
-      <Column Name="m_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="m_id" AutoSync="Never" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="m_title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="m_theme" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="m_abstract" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
