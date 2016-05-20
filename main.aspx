@@ -56,13 +56,13 @@
                 </div>
                 <div title="系统">
                     <p>
-                        <a href="javascript:void(0)" src="System/Setting" class="cs-navi-tab">系统设置</a>
+                        <a href="javascript:void(0)" src="Sys/Setting" class="cs-navi-tab">系统设置</a>
                     </p>
                     <p>
-                        <a href="javascript:void(0)" src="System/Client" class="cs-navi-tab">客户端设置</a>
+                        <a href="javascript:void(0)" src="Sys/Client" class="cs-navi-tab">客户端设置</a>
                     </p>
                     <p>
-                        <a href="javascript:void(0)" src="System/About" class="cs-navi-tab">关于</a>
+                        <a href="javascript:void(0)" src="Sys/About" class="cs-navi-tab">关于</a>
                     </p>
                     <p>
                         <a href="javascript:window.location.href='index.aspx'" class="cs-navi-tab">退出</a>

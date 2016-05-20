@@ -33,9 +33,12 @@ namespace meeting.server
                     {
                         //回写数据库
                         meeting.m_current_item = last_item.item_number;
+                        string begin_time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                        last_item.item_time_begin = begin_time;
                         try
                         {
                             mDb.SubmitChanges();
+                            iDb.SubmitChanges();
                             res.isNextItem = true;
                             res.currentItemsNumber = last_item.item_number;
                             res.itemTime = last_item.item_time;

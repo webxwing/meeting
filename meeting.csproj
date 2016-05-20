@@ -2305,6 +2305,9 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Sys\Client.aspx" />
+    <Content Include="TVshow\meeting.aspx" />
+    <Content Include="TVshow\meetingDetail.aspx" />
     <Content Include="User\AddUser.aspx" />
     <Content Include="User\Userlist.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -2325,6 +2328,9 @@
     <Content Include="server\meetingItemBymid.ashx" />
     <Content Include="server\meetingItemControl.ashx" />
     <Content Include="server\meetingItemCheck.ashx" />
+    <Content Include="server\meetingForTV.ashx" />
+    <Content Include="server\meetingitembymidForTV.ashx" />
+    <Content Include="server\updateForTV.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2354,12 +2360,14 @@
     </Compile>
     <Compile Include="Account\Manage.aspx.cs">
       <DependentUpon>Manage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Account\Manage.aspx.designer.cs">
       <DependentUpon>Manage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\OpenAuthProviders.ascx.cs">
       <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Account\OpenAuthProviders.ascx.designer.cs">
       <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
@@ -2373,6 +2381,7 @@
     </Compile>
     <Compile Include="Account\RegisterExternalLogin.aspx.cs">
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Account\RegisterExternalLogin.aspx.designer.cs">
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
@@ -2418,6 +2427,7 @@
     </Compile>
     <Compile Include="main.aspx.cs">
       <DependentUpon>main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="main.aspx.designer.cs">
       <DependentUpon>main.aspx</DependentUpon>
@@ -2455,6 +2465,7 @@
     </Compile>
     <Compile Include="Meeting\MeetingEditItems.aspx.cs">
       <DependentUpon>MeetingEditItems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Meeting\MeetingEditItems.aspx.designer.cs">
       <DependentUpon>MeetingEditItems.aspx</DependentUpon>
@@ -2510,11 +2521,17 @@
     <Compile Include="server\meetingbystate.ashx.cs">
       <DependentUpon>meetingbystate.ashx</DependentUpon>
     </Compile>
+    <Compile Include="server\meetingForTV.ashx.cs">
+      <DependentUpon>meetingForTV.ashx</DependentUpon>
+    </Compile>
     <Compile Include="server\meetingfrompage.ashx.cs">
       <DependentUpon>meetingfrompage.ashx</DependentUpon>
     </Compile>
     <Compile Include="server\meetingItemBymid.ashx.cs">
       <DependentUpon>meetingItemBymid.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="server\meetingitembymidForTV.ashx.cs">
+      <DependentUpon>meetingitembymidForTV.ashx</DependentUpon>
     </Compile>
     <Compile Include="server\meetingItemCheck.ashx.cs">
       <DependentUpon>meetingItemCheck.ashx</DependentUpon>
@@ -2524,6 +2541,9 @@
     </Compile>
     <Compile Include="server\update.ashx.cs">
       <DependentUpon>update.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="server\updateForTV.ashx.cs">
+      <DependentUpon>updateForTV.ashx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -2538,6 +2558,27 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Sys\Client.aspx.cs">
+      <DependentUpon>Client.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sys\Client.aspx.designer.cs">
+      <DependentUpon>Client.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TVshow\meeting.aspx.cs">
+      <DependentUpon>meeting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TVshow\meeting.aspx.designer.cs">
+      <DependentUpon>meeting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TVshow\meetingDetail.aspx.cs">
+      <DependentUpon>meetingDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TVshow\meetingDetail.aspx.designer.cs">
+      <DependentUpon>meetingDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\AddUser.aspx.cs">
       <DependentUpon>AddUser.aspx</DependentUpon>

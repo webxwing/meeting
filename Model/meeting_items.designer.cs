@@ -96,6 +96,10 @@ namespace meeting.Model
 		
 		private int _item_number;
 		
+		private string _item_time_begin;
+		
+		private string _item_time_end;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -116,6 +120,10 @@ namespace meeting.Model
     partial void Onitem_files_urlChanged();
     partial void Onitem_numberChanging(int value);
     partial void Onitem_numberChanged();
+    partial void Onitem_time_beginChanging(string value);
+    partial void Onitem_time_beginChanged();
+    partial void Onitem_time_endChanging(string value);
+    partial void Onitem_time_endChanged();
     #endregion
 		
 		public T_meeting_item()
@@ -279,6 +287,46 @@ namespace meeting.Model
 					this._item_number = value;
 					this.SendPropertyChanged("item_number");
 					this.Onitem_numberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_item_time_begin", DbType="NVarChar(20)")]
+		public string item_time_begin
+		{
+			get
+			{
+				return this._item_time_begin;
+			}
+			set
+			{
+				if ((this._item_time_begin != value))
+				{
+					this.Onitem_time_beginChanging(value);
+					this.SendPropertyChanging();
+					this._item_time_begin = value;
+					this.SendPropertyChanged("item_time_begin");
+					this.Onitem_time_beginChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_item_time_end", DbType="NVarChar(20)")]
+		public string item_time_end
+		{
+			get
+			{
+				return this._item_time_end;
+			}
+			set
+			{
+				if ((this._item_time_end != value))
+				{
+					this.Onitem_time_endChanging(value);
+					this.SendPropertyChanging();
+					this._item_time_end = value;
+					this.SendPropertyChanged("item_time_end");
+					this.Onitem_time_endChanged();
 				}
 			}
 		}

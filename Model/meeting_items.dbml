@@ -10,6 +10,8 @@
       <Column Name="item_content" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="item_files_url" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="item_number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="item_time_begin" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="item_time_end" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

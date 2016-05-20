@@ -6,9 +6,9 @@ using System.Web;
 namespace meeting.server
 {
     /// <summary>
-    /// Summary description for update
+    /// Summary description for updateForTV
     /// </summary>
-    public class update : IHttpHandler
+    public class updateForTV : IHttpHandler
     {
 
         public void ProcessRequest(HttpContext context)
