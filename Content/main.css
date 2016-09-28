@@ -7,9 +7,22 @@ body{
     font-size:14px;
     margin:0;
 }
+/*验证提示*/
+.validatebox-tip-content {
+    display: inline-block;
+    position: absolute;
+    top: 70px;
+    left: 520px;
+    padding: 3px 5px;
+    border: 1px solid #CC9933;
+    background: #FFFFCC;
+    z-index: 9900001;
+    font-size: 12px;
+}
 .div_wraper{
-    width:700px;
+    width:100%;
     margin:0 auto;
+    position:relative;
 }
 .div_row{
     margin:10px auto;
@@ -22,4 +35,56 @@ input[type="text"]{
 label{
      vertical-align: top;
 }
+.datagrid-btable .datagrid-cell{
+    padding:6px 4px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;
+}
+.datagrid-toolbar table tr td{
+    padding:4px;    
+}
+.datagrid-toolbar table tr td a span{
+    font-size:15px !important;
+}
+.btn{
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.btn-primary{
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
+}
+.btn-xs{
+    padding: 1px 5px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+
+a,a:hover{
+    text-decoration:none;
+}
+
+
 

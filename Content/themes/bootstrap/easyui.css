@@ -114,10 +114,10 @@
 .panel-body {
   background-color: #ffffff;
   color: #333;
-  font-size: 12px;
+  font-size: 14px;
 }
 .panel-title {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
   color: #777;
   height: 16px;
@@ -600,7 +600,7 @@
   margin-top: -8px;
 }
 .tabs-title {
-  font-size: 12px;
+  font-size: 14px;
 }
 .tabs-closable {
   padding-right: 8px;
@@ -1055,13 +1055,13 @@ a:hover.l-btn-plain-selected {
   overflow: hidden;
   height: 18px;
   line-height: 18px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .datagrid-header .datagrid-cell {
   height: auto;
 }
 .datagrid-header .datagrid-cell span {
-  font-size: 12px;
+  font-size: 14px;
 }
 .datagrid-cell-group {
   text-align: center;
@@ -1111,7 +1111,7 @@ a:hover.l-btn-plain-selected {
   margin: 0;
   padding: 0;
   width: 15px;
-  height: 18px;
+  height: 15px;
 }
 .datagrid-resize-proxy {
   position: absolute;
@@ -1282,10 +1282,10 @@ a:hover.l-btn-plain-selected {
   padding: 0;
   height: 30px;
   line-height: 30px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .pagination span {
-  font-size: 12px;
+  font-size: 14px;
 }
 .pagination-first {
   background: url('images/pagination_icons.png') no-repeat 0 0;

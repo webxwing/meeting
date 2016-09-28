@@ -10,7 +10,7 @@ namespace meeting.Meeting
 {
     public partial class MeetingItems : System.Web.UI.Page
     {
-        private static meetingDataContext meetingContext = new meetingDataContext();
+        private meetingDataContext meetingContext = new meetingDataContext();
         private meeting_itemsDataContext a_meeting_item = new meeting_itemsDataContext();
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0" />
+    <title>成都工业职业技术学院-会议助手后台管理系统</title>
+    <meta name="keywords" content="成都工业职业技术学院,会议系统管理后台,移动APP后台管理" />
+    <meta name="description" content="成都市工业职业技术完会议助手管理系统、支持移动智能终端（平板电脑、智能电视）使用的移动客户端应用程序APP" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet" />
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/login.css" rel="stylesheet" />
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;info.html" />
+    <![endif]-->
+    <script>
+        if (window.top !== window.self) {
+            window.top.location = window.location;
+        }
+    </script>
+</head>
+<body class="signin">
+    <div class="signinpanel">
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="signin-info">
+                    <div class="logopanel m-b">
+                        <h1>欢迎使用<strong>会议小助手</strong>管理后台</h1>
+                    </div>
+                    <div class="m-b"></div>
+                    <h4>成都工业职业技术学院</h4>
+                    <ul class="m-b">
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i>会议管理</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i>议程管理</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i>时间可控</li>
+                    </ul>
+                    <strong>没有帐号？<a href="#">联系管理员&raquo;</a></strong>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <form id="signupForm" action="index.aspx" method="post">
+                    <h4 class="no-margins">登录：</h4>
+                    <p class="m-t-md">登录到会议小助手后台管理</p>
+                    <input type="text" id="uname" name="uname" class="form-control uname" placeholder="用户名" />
+                    <input type="password" id="pass" name="pass" class="form-control pword m-b" placeholder="密码" />
+                    <a href="#">忘记密码了？</a>
+                    <button class="btn btn-success btn-block">
+                        登录
+                    </button>
+                    <div id="loginLoding" class="sr-only" style="margin-top:10px;">
+                        <div class="sk-spinner sk-spinner-wave">
+                            <div class="sk-rect1"></div>
+                            <div class="sk-rect2"></div>
+                            <div class="sk-rect3"></div>
+                            <div class="sk-rect4"></div>
+                            <div class="sk-rect5"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="signup-footer">
+            <div class="pull-left">
+                &copy;2015-2016 All Rights Reserved. 信息中心
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 全局js -->
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/plugins/validate/jquery.validate.min.js"></script>
+    <script src="js/plugins/validate/messages_zh.min.js"></script>
+    <!-- 自定义js -->
+    <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+    <script type="text/javascript" src="js/form-validate.js"></script>
+</body>
+</html>

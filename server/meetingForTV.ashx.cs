@@ -12,10 +12,12 @@ namespace meeting.server
     /// </summary>
     public class meetingForTV : IHttpHandler
     {
-        private static meetingDataContext mDb = new meetingDataContext();
+        private meetingDataContext mDb = new meetingDataContext();
         public void ProcessRequest(HttpContext context)
         {
-            context.Response.ContentType = "application/Json";
+            context.Response.Cache.SetNoStore();
+            context.Response.Clear();
+            context.Response.ContentType = "text/plain";
             int pageIndex = context.Request["page"] == null || context.Request["page"] == "" ? 1 : Int32.Parse(context.Request["page"]);
             int pageSize = context.Request["rows"] == null || context.Request["rows"] == "" ? 7 : Int32.Parse(context.Request["rows"]);
             var s = from meetings in mDb.T_meetings

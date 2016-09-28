@@ -12,10 +12,12 @@ namespace meeting.server
     /// </summary>
     public class meetingbyid : IHttpHandler
     {
-        private static meetingDataContext mDb = new meetingDataContext();
+        private meetingDataContext mDb = new meetingDataContext();
         public void ProcessRequest(HttpContext context)
         {
-            context.Response.ContentType = "application/Json";
+            context.Response.Cache.SetNoStore();
+            context.Response.Clear();
+            context.Response.ContentType = "text/plain";
             int m_id = context.Request["m_id"] != null && context.Request["m_id"] != "" ? Int32.Parse(context.Request["m_id"]) : -1;
             var m = mDb.T_meetings.SingleOrDefault(n => n.m_id == m_id);
             var json = JsonConvert.SerializeObject(m);

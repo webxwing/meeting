@@ -11,6 +11,11 @@
     <script src="../Scripts/jquery-1.8.0.min.js"></script>
     <script src="../Scripts/jquery.easyui.min.js"></script>
     <script src="../Scripts/app.js"></script>
+    <script src="../Scripts/locale/easyui-lang-zh_CN.js"></script>
+    <!--[if lte IE 9]>
+    <script src="../Scripts/other/html5shiv.min.js"></script>
+    <script src="../Scripts/other/respond.min.js"></script>
+    <![endif]-->
     <style>
         .title_center {
             text-align: center;
@@ -26,12 +31,12 @@
                     <asp:Label Text="text" runat="server" ID="m_title_label" />
                 </h2>
             </div>
-            <table id="dg" title="用户列表" style="width: 700px; height: 350px"
+            <table id="dg" title="用户列表"
                 data-options="rownumbers:true,singleSelect:true,pagination:true,method:'get',toolbar:'#tb_tool'">
                 <thead>
                     <tr>
                         <th data-options="field:'ch',checkbox:true"></th>
-                        <th data-options="field:'item_title',width:260,align:'left'">名称</th>
+                        <th data-options="field:'item_title',width:360,align:'left'">名称</th>
                         <th data-options="field:'item_time',width:80,align:'center'">用时(分钟)</th>
                         <th data-options="field:'item_state',width:100,align:'center'">状态</th>
                         <th data-options="field:'item_number',width:100,align:'center'">顺序</th>
@@ -73,6 +78,24 @@
                 iconCls: 'icon-remove',
                 text: '删除',
                 handler: function () {
+                    var row = $('#dg').datagrid('getSelected');
+                    if (row == 'undefine' || m_id == null || m_id == "") return;
+                    var control_data = { 'm_id': m_id, 'i_id': row.id, 'i_state': row.item_state };
+                    $.messager.defaults = { ok: '是', cancel: '否' };
+                    $.messager.confirm('操作提示', '确认执行删除操作？', function (data) {
+                        if (data) {
+                            getData("MeetingItemsDelete.ashx", control_data, function (result) {
+                                if (result == "ok") {
+                                    $.messager.alert('提示', '删除成功！');
+                                    $('#dg').datagrid('reload');
+                                } else {
+                                    $.messager.alert('提示','删除失败：' + result);
+                                }
+                            }, function (e) {
+                                $.messager.alert("错误", "删除失败，服务器错误：" + e.msg);
+                            });
+                        }
+                    });
 
                 }
             }, {

@@ -11,7 +11,7 @@ namespace meeting.Meeting
     /// </summary>
     public class MeetingItemControl : IHttpHandler
     {
-        private meeting_itemsDataContext iDb = new meeting_itemsDataContext();
+        public meeting_itemsDataContext iDb = new meeting_itemsDataContext();
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/plain";

@@ -10,7 +10,7 @@ namespace meeting.Meeting
 {
     public partial class MeetingEdit : System.Web.UI.Page
     {
-        private static meetingDataContext dataContext = new meetingDataContext();
+        private meetingDataContext dataContext = new meetingDataContext();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

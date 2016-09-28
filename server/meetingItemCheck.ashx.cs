@@ -12,10 +12,12 @@ namespace meeting.server
     /// </summary>
     public class meetingItemCheck : IHttpHandler
     {
-        private static meetingDataContext mDb = new meetingDataContext();
+        private meetingDataContext mDb = new meetingDataContext();
         public void ProcessRequest(HttpContext context)
         {
-            context.Response.ContentType = "application/Json";
+            context.Response.Cache.SetNoStore();
+            context.Response.Clear();
+            context.Response.ContentType = "text/plain";
             var  r = new Res();
             r.isCheck = false;
             r.currentItems = -1;
@@ -26,6 +28,11 @@ namespace meeting.server
             {
                 r.isCheck = true;
                 r.currentItems = meeting.m_current_item;
+            }
+            if (meeting.m_state != "进行中")
+            {
+                r.isCheck = true;
+                r.currentItems = 0;
             }
             var json = JsonConvert.SerializeObject(r);
             context.Response.Write(json);

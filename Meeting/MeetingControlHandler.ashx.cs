@@ -11,7 +11,7 @@ namespace meeting.Meeting
     /// </summary>
     public class MeetingControlHandler : IHttpHandler
     {
-        private meetingDataContext db = new meetingDataContext();
+        public meetingDataContext db = new meetingDataContext();
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "application/Json";

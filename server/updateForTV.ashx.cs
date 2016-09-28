@@ -13,6 +13,8 @@ namespace meeting.server
 
         public void ProcessRequest(HttpContext context)
         {
+            context.Response.Cache.SetNoStore();
+            context.Response.Clear();
             context.Response.ContentType = "text/plain";
             //status 0  不提示更新
             //status 1  有更新

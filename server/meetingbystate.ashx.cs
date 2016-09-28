@@ -12,12 +12,12 @@ namespace meeting.server
     /// </summary>
     public class meetingbystate : IHttpHandler
     {
-        private static meetingDataContext mDb = new meetingDataContext();
+        private meetingDataContext mDb = new meetingDataContext();
         public void ProcessRequest(HttpContext context)
         {
-            context.Response.ContentType = "application/Json";
             context.Response.Cache.SetNoStore();
             context.Response.Clear();
+            context.Response.ContentType = "text/plain";
             var m = from meetings in mDb.T_meetings
                     orderby meetings.m_state
                     select meetings;

@@ -12,12 +12,13 @@ namespace meeting.server
     /// </summary>
     public class meetingItemControl : IHttpHandler
     {
-        private static meetingDataContext mDb = new meetingDataContext();
-        private static meeting_itemsDataContext iDb = new meeting_itemsDataContext();
+        public meetingDataContext mDb = new meetingDataContext();
+        public meeting_itemsDataContext iDb = new meeting_itemsDataContext();
         public void ProcessRequest(HttpContext context)
         {
-            //context.Response.ContentType = "text/plain";
-            context.Response.ContentType = "application/Json";
+            context.Response.Cache.SetNoStore();
+            context.Response.Clear();
+            context.Response.ContentType = "text/plain";
             Response_obj res = new Response_obj();
             res.isNextItem = false;
             res.msg = "未发现相关会议信息！";
@@ -29,12 +30,14 @@ namespace meeting.server
                 if (currentItem != null)
                 {
                     var last_item = iDb.T_meeting_items.Where(i => i.m_id == m_id).Where(s => s.item_number > currentItem).FirstOrDefault();
+                    var current_item = iDb.T_meeting_items.Where(i => i.m_id == m_id).Where(s => s.item_number == currentItem).FirstOrDefault();
                     if (last_item != null)
                     {
                         //回写数据库
-                        meeting.m_current_item = last_item.item_number;
+                        meeting.m_current_item = last_item.item_number; 
                         string begin_time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                         last_item.item_time_begin = begin_time;
+                        current_item.item_time_end = begin_time;
                         try
                         {
                             mDb.SubmitChanges();

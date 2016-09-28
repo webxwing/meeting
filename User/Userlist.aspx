@@ -10,11 +10,12 @@
     <link href="../Content/main.css" rel="stylesheet" />
     <script src="../Scripts/jquery-1.8.0.min.js"></script>
     <script src="../Scripts/jquery.easyui.min.js"></script>
+    <script src="../Scripts/locale/easyui-lang-zh_CN.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
         <div class="div_wraper">
-            <table id="dg" title="用户列表" style="width: 700px; height: 350px"
+            <table id="dg" title="用户列表" 
                 data-options="rownumbers:true,singleSelect:true,pagination:true,url:'UserHandler.ashx',method:'get'">
                 <thead>
                     <tr>

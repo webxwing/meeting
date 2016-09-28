@@ -10,11 +10,12 @@
     <link href="../Content/main.css" rel="stylesheet" />
     <script src="../Scripts/jquery-1.8.0.min.js"></script>
     <script src="../Scripts/jquery.easyui.min.js"></script>
+    <script src="../Scripts/locale/easyui-lang-zh_CN.js"></script>
 </head>
 <body>
     <form id="AddUserForm" runat="server">
         <div class="div_wraper">
-            <div class="easyui-panel" title="添加" style="width: 700px; height: auto; padding: 10px; background: #fafafa;">
+            <div class="easyui-panel" title="添加" style="padding: 10px; background: #fafafa;">
                 <div class="div_row">
                     <label for="username">用户名：</label>
                     <input type="text" name="username" class="easyui-validatebox" data-options="required:true,missingMessage:'用户名未填写！'" />

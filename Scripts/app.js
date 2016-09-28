@@ -150,7 +150,7 @@ function getCookie(name) {//取cookies函数
 $.extend($.fn.validatebox.defaults.rules, {
     TimeCheck: {
         validator: function (value, param) {
-            var a = /^(\d{1,2})(-|\/)(\d{1,2})\2(\d{1,4}) (\d{1,2}):(\d{1,2})$/;
+            var a = /^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2}) (\d{1,2}):(\d{1,2})$/g;
             var s = $("input[name=" + param[0] + "]").val().trim();
             return s.match(a);
         },
@@ -188,8 +188,18 @@ function getData(url, data_par, callbackOk, callbackError) {
     $.ajax({
         type: 'post',
         url: url,
+        timeout: 10000,
         data: data_par,
         success: callbackOk,
         error: callbackError
     });
 }
+
+//resize
+$(window).bind('resize', function () {
+    //var width = $('#form1').width();
+    window.location.reload();
+});
+
+
+

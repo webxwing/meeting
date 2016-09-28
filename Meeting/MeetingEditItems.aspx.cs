@@ -35,7 +35,7 @@ namespace meeting.Meeting
             }
             item_number.Value = i_meeting.item_number.ToString();
             item_title.Value = i_meeting.item_title;
-            item_content.Value = i_meeting.item_content;
+            item_content.Value = HttpUtility.HtmlDecode(i_meeting.item_content);
             item_time.Value = i_meeting.item_time.ToString();
             string[] item_files = new string[] { };
             string temp = "";
@@ -88,7 +88,8 @@ namespace meeting.Meeting
             if (i_meeting_get != null)
             {
                 i_meeting_get.item_title = Request.Form["item_title"].ToString().Trim();
-                i_meeting_get.item_content = Request.Form["item_content"].ToString().Trim();
+                //HTML转码
+                i_meeting_get.item_content =HttpUtility.HtmlEncode(Request.Form["item_content"].ToString().Trim());
                 i_meeting_get.item_number = Int32.Parse(Request.Form["item_number"]);
                 i_meeting_get.item_time = Int32.Parse(Request.Form["item_time"]);
                 i_meeting_get.item_files_url = item_files_url;

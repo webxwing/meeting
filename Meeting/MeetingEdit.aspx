@@ -5,12 +5,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>编辑会议</title>
-     <link href="../Content/themes/default/easyui.css" rel="stylesheet" />
+    <meta http-equiv="X-UA-compatible" content="IE=edge,chrome=1" />
+    <link href="../Content/themes/default/easyui.css" rel="stylesheet" />
     <link href="../Content/themes/icon.css" rel="stylesheet" />
     <link href="../Content/main.css" rel="stylesheet" />
     <script src="../Scripts/jquery-1.8.0.min.js"></script>
     <script src="../Scripts/jquery.easyui.min.js"></script>
     <script src="../Scripts/app.js"></script>
+    <!--[if lte IE 9]>
+    <script src="../Scripts/other/html5shiv.min.js"></script>
+    <script src="../Scripts/other/respond.min.js"></script>
+    <![endif]-->
     <style>
         .textarea_abstruct{
             width:420px;
@@ -24,7 +29,7 @@
 <body>
     <form id="MeetingEditForm" class="form1" runat="server">
     <div class="div_wraper">
-        <div class="easyui-panel" title="编辑" style="width: 700px; height: auto; padding: 10px; background: #fafafa;">
+        <div class="easyui-panel" title="编辑" style="padding: 10px; background: #fafafa;">
             <div class="div_row">
                 <label for="m_title">标 题：</label>&nbsp;&nbsp;
                 <input type="text" id="m_title" runat="server" name="m_title" class="easyui-validatebox" data-options="required:true,missingMessage:'标题未填写！'" style="width:420px" />

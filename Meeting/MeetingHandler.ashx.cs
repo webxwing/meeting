@@ -11,7 +11,7 @@ namespace meeting.Meeting
     /// </summary>
     public class MeetingHandler : IHttpHandler
     {
-        private static meetingDataContext dataContext = new meetingDataContext();
+        public meetingDataContext dataContext = new meetingDataContext();
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "application/Json";
@@ -19,14 +19,15 @@ namespace meeting.Meeting
             int pageIndex = context.Request["page"] == null || context.Request["page"] == "" ? 1 : Int32.Parse(context.Request["page"]);
             int pageSize = context.Request["rows"] == null || context.Request["rows"] == "" ? 10 : Int32.Parse(context.Request["rows"]);
             var s = from meetings in dataContext.T_meetings
-                    orderby meetings.m_id
+                    orderby meetings.m_date descending
                     select new 
                     {
                         id = meetings.m_id,
                         m_title = meetings.m_title,
                         m_date = meetings.m_date,
                         m_place = meetings.m_place,
-                        m_state = meetings.m_state
+                        m_state = meetings.m_state,
+                        m_pass = meetings.m_pass
                     };
             var r = s.Take(pageSize * pageIndex).Skip(pageSize * (pageIndex - 1)).ToList();
             

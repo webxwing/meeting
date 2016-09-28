@@ -10,8 +10,8 @@ namespace meeting.Meeting
 {
     public partial class MeetingAddItems : System.Web.UI.Page
     {
-        private static meetingDataContext meetingContext = new meetingDataContext();
-        private static meeting_itemsDataContext meeting_itemsContext = new meeting_itemsDataContext();
+        private meetingDataContext meetingContext = new meetingDataContext();
+        private meeting_itemsDataContext meeting_itemsContext = new meeting_itemsDataContext();
         protected void Page_Load(object sender, EventArgs e)
         {
             //m_title.Text ="ss";
@@ -52,7 +52,7 @@ namespace meeting.Meeting
             {
                 m_id = Int32.Parse(Request.QueryString["m_id"].ToString()),
                 item_title = Request.Form["item_title"].ToString().Trim(),
-                item_content = Request.Form["item_content"].ToString().Trim(),
+                item_content =HttpUtility.HtmlEncode(Request.Form["item_content"].ToString().Trim()),
                 item_number = Int32.Parse(Request.Form["item_number"]),
                 item_time = Int32.Parse(Request.Form["item_time"]),
                 item_files_url = Session["files"] != null ? Session["files"].ToString() : null,

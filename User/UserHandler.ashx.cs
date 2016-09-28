@@ -12,40 +12,49 @@ namespace meeting.User
     /// </summary>
     public class UserHandler1 : IHttpHandler
     {
-        private static UserDataContext dataContext = new UserDataContext();
+        public static UserDataContext dataContext = new UserDataContext();
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/plain";
+            int pageIndex = context.Request["page"] == null || context.Request["page"] == "" ? 1 : Int32.Parse(context.Request["page"]);
+            int pageSize = context.Request["rows"] == null || context.Request["rows"] == "" ? 10 : Int32.Parse(context.Request["rows"]);
             if (context.Request["id"] != null)
             {
-                var u = from user in dataContext.T_users
+                var s = from user in dataContext.T_users
                         where user.u_id == Int32.Parse(context.Request["id"])
                         select new
                         {
                             id = user.u_id,
                             username = user.u_username,
-                            password = "******",
+                            password = md5.MD5Encrypt(user.u_password,md5.GetKey()),
                             actor = getActorName(user.u_actor)
                         };
-                string json = JsonConvert.SerializeObject(u);
+                string json = JsonConvert.SerializeObject(s);
                 context.Response.Write("{\"total\":1,\"rows\":" + json + "}");
 
             }
             else
             //返回所有用户
             {
-                var s = from user in dataContext.T_users
+                var s = from var_user in dataContext.T_users
                         select new
                         {
-                            id = user.u_id,
-                            username = user.u_username,
-                            password = "******",
-                            actor = getActorName(user.u_actor)
+                            id = var_user.u_id,
+                            username = var_user.u_username,
+                            password = getPassword(md5.MD5Decrypt(var_user.u_password, md5.GetKey())),
+                            actor = getActorName(var_user.u_actor)
                         };
-                string jsons = JsonConvert.SerializeObject(s);
+                var r = s.Take(pageSize * pageIndex).Skip(pageSize * (pageIndex - 1)).ToList();
+                string jsons = JsonConvert.SerializeObject(r);
                 jsons = "{\"total\":" + s.Count() + ",\"rows\":" + jsons +"}";
                 context.Response.Write(jsons);
             }
+        }
+
+        //密码处理
+        private string getPassword(string p)
+        {
+            return p.Substring(0, 1) + "*******";
         }
 
         public bool IsReusable
