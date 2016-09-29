@@ -12,6 +12,7 @@ namespace meeting.Meeting
     public class MeetingControlHandler : IHttpHandler
     {
         public meetingDataContext db = new meetingDataContext();
+        public meeting_itemsDataContext mdb = new meeting_itemsDataContext();
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "application/Json";
@@ -19,17 +20,27 @@ namespace meeting.Meeting
             if (context.Request["m_id"] != null && context.Request["m_id"] != "")
             {
                 var meeting = db.T_meetings.SingleOrDefault(m => m.m_id == Int32.Parse(context.Request["m_id"]));
+                var m_id = context.Request["m_id"].ToString();
+                var items = mdb.T_meeting_items.Where(item => item.m_id == Int32.Parse(m_id));
                 if (meeting != null)
-                {
+                {                    
                     meeting.m_state = context.Request["cState"];
-                    try
+                    if (context.Request["cState"].ToString() != "已结束" && items != null)
                     {
+                        foreach (var item in items)
+                        {
+                            item.item_time_begin = null;
+                            item.item_time_end = null;
+                        }
+                    }
+                    try
+                    {                        
                         db.SubmitChanges();
+                        mdb.SubmitChanges();
                         context.Response.Write("ok");
                     }
                     catch (Exception)
-                    {
-                        
+                    {                        
                         context.Response.Write("error");
                     }
                 }

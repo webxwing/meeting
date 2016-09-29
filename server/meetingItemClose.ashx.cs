@@ -50,7 +50,7 @@ namespace meeting.server
                     }
                     else
                     {
-                        res.msg = "进入失败，当前已是最后！";
+                        res.msg = "关闭失败，当前未开启任何议程！";
                     }
                 }
             }

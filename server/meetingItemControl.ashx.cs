@@ -30,14 +30,20 @@ namespace meeting.server
                 if (currentItem != null)
                 {
                     var last_item = iDb.T_meeting_items.Where(i => i.m_id == m_id).Where(s => s.item_number > currentItem).FirstOrDefault();
-                    var current_item = iDb.T_meeting_items.Where(i => i.m_id == m_id).Where(s => s.item_number == currentItem).FirstOrDefault();
+                    
                     if (last_item != null)
                     {
                         //回写数据库
                         meeting.m_current_item = last_item.item_number; 
                         string begin_time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                         last_item.item_time_begin = begin_time;
-                        current_item.item_time_end = begin_time;
+                        //第一次不能计算出当前议程，不需要修改时间
+                        if (currentItem != 0)
+                        {
+                            var current_item = iDb.T_meeting_items.Where(i => i.m_id == m_id).Where(s => s.item_number == currentItem).FirstOrDefault();
+                            current_item.item_time_end = begin_time;
+                        }                         
+                        
                         try
                         {
                             mDb.SubmitChanges();
