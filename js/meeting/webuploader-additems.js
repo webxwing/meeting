@@ -20,10 +20,11 @@
     }
     var uploader = WebUploader.create({
         swf: BASE_URL,
+        chunked:true,
         server: '../../FileUpload/uploadHandler.ashx',
         accept: { title: 'files', extensions: 'doc,docx,xls,xlsx,ppt,pptx,pdf,gif,jpg,jpeg,png,txt', mimeTypes: '*' },
         fileNumLimit: 10,
-        fileSingleSizeLimit: 1 * 1024 * 1024, //50兆
+        fileSingleSizeLimit: 100 * 1024 * 1024, //50兆
         pick: '#picker'
     });
     var hdFileData = $('#hfFilePath');

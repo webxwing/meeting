@@ -27,6 +27,7 @@ namespace meeting.Meeting
                     meeting.m_state = context.Request["cState"];
                     if (context.Request["cState"].ToString() != "已结束" && items != null)
                     {
+                        meeting.m_current_item = 0;
                         foreach (var item in items)
                         {
                             item.item_time_begin = null;

@@ -31,7 +31,6 @@ namespace meeting.User
                         };
                 string json = JsonConvert.SerializeObject(s);
                 context.Response.Write("{\"total\":1,\"rows\":" + json + "}");
-
             }
             else
             //返回所有用户

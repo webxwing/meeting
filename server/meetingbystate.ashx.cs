@@ -19,9 +19,10 @@ namespace meeting.server
             context.Response.Clear();
             context.Response.ContentType = "text/plain";
             var m = from meetings in mDb.T_meetings
+                    where meetings.m_state == "进行中"
                     orderby meetings.m_state
                     select meetings;
-            var json =  JsonConvert.SerializeObject(m.Take(9));
+            var json = JsonConvert.SerializeObject(m.Take(9));
             context.Response.Write(json);
         }
 

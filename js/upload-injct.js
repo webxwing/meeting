@@ -22,7 +22,7 @@ var uploader = WebUploader.create({
     server: '../../FileUpload/uploadHandler.ashx',
     accept: { title: 'files', extensions: 'doc,docx,xls,xlsx,ppt,pptx,pdf,gif,jpg,jpeg,png,txt', mimeTypes: '*' },
     fileNumLimit: 10,
-    fileSingleSizeLimit: 1 * 1024 * 1024, //50兆
+    fileSingleSizeLimit: 1 * 1024 * 1024, //10兆
     pick: '#picker'
 });
 var hdFileData = $('#hfFilePath');

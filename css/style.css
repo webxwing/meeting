@@ -7890,3 +7890,9 @@ body.skin-3 {
         font-size: 12px
     }
 }
+#picker{
+    display:inline-block;
+    line-height:1.1;
+    vertical-align:middle;
+    margin:0 12px 0 0;
+}

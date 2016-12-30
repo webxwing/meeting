@@ -2342,7 +2342,7 @@
     <Content Include="Images\orderedList7.png" />
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
-    <Content Include="Default.aspx" />
+    <Content Include="Default_delete.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\splash_tv.png" />
     <Content Include="img\a1.jpg" />
@@ -2413,6 +2413,7 @@
     <Content Include="js\jquery-ui-1.10.4.min.js" />
     <Content Include="js\jquery-ui.custom.min.js" />
     <Content Include="js\jquery.min.js" />
+    <Content Include="js\sys\security_client.js" />
     <Content Include="js\upload-injct.js" />
     <Content Include="js\meeting\meetingItemsList.js" />
     <Content Include="js\meeting\meetingListData.js" />
@@ -2931,6 +2932,7 @@
     <Content Include="User\UserFormUsernameValidate.ashx" />
     <Content Include="server\meetingItemClose.ashx" />
     <Content Include="server\meetingItemReback.ashx" />
+    <Content Include="Sys\security.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2993,12 +2995,12 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="Default_delete.aspx.cs">
+      <DependentUpon>Default_delete.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="Default_delete.aspx.designer.cs">
+      <DependentUpon>Default_delete.aspx</DependentUpon>
     </Compile>
     <Compile Include="FileUpload\update.aspx.cs">
       <DependentUpon>update.aspx</DependentUpon>
@@ -3241,6 +3243,9 @@
     </Compile>
     <Compile Include="Sys\Client.aspx.designer.cs">
       <DependentUpon>Client.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sys\security.ashx.cs">
+      <DependentUpon>security.ashx</DependentUpon>
     </Compile>
     <Compile Include="TVshow\meeting.aspx.cs">
       <DependentUpon>meeting.aspx</DependentUpon>

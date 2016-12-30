@@ -231,6 +231,7 @@ function ajaxSubmitForm(uname, pass) {
         success: function (data, textStatus) {
             if (data.isLogin) {
                 loginLoding.addClass("sr-only");
+                addCookie("user",uname,1,"/");
                 swal({ title: "恭喜，登录成功！", text: "3秒钟后自动进入~", type: "success", confirmButtonText: "进入" }, function () {
                     loginLoding.addClass("sr-only");
                     window.location.href = "index.html";

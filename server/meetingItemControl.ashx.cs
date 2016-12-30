@@ -29,7 +29,7 @@ namespace meeting.server
                 int? currentItem = meeting.m_current_item;
                 if (currentItem != null)
                 {
-                    var last_item = iDb.T_meeting_items.Where(i => i.m_id == m_id).Where(s => s.item_number > currentItem).FirstOrDefault();
+                    var last_item = iDb.T_meeting_items.Where(i => i.m_id == m_id).Where(s => s.item_number > currentItem).OrderBy(o=>o.item_number).FirstOrDefault();
                     
                     if (last_item != null)
                     {
